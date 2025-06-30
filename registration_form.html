@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج التسجيل - نادي انطلاقة الصيفي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Almarai', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            direction: rtl;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+        }
+        
+        .form-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .form-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .form-description {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .form-section {
+            padding: 30px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E3A8A;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 80px;
+            height: 2px;
+            background-color: #1E3A8A;
+        }
+        
+        .section-icon {
+            color: #1E3A8A;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-row.single {
+            grid-template-columns: 1fr;
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .required {
+            color: #e74c3c;
+            margin-right: 3px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Almarai', sans-serif;
+            transition: all 0.3s ease;
+            background-color: #fafafa;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1E3A8A;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .checkbox-group,
+        .radio-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .checkbox-item,
+        .radio-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .checkbox-item:hover,
+        .radio-item:hover {
+            background-color: #e3f2fd;
+            border-color: #1E3A8A;
+            transform: translateY(-2px);
+        }
+        
+        .checkbox-item input,
+        .radio-item input {
+            margin-left: 10px;
+            transform: scale(1.2);
+        }
+        
+        .checkbox-item.checked,
+        .radio-item.checked {
+            background-color: #e3f2fd;
+            border-color: #1E3A8A;
+            color: #1E3A8A;
+            font-weight: 600;
+        }
+        
+        .help-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .submit-section {
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            text-align: center;
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.4);
+            min-width: 200px;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.5);
+        }
+        
+        .submit-button:active {
+            transform: translateY(-1px);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: #e0e0e0;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1E3A8A, #2563EB);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #c3e6cb;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkbox-group,
+            .radio-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-title {
+                font-size: 24px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+        }
+        
+        .conditional-field {
+            display: none;
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-right: 4px solid #1E3A8A;
+        }
+        
+        .conditional-field.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .back-to-announcement {
+            display: inline-block;
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(108, 117, 125, 0.3);
+        }
+        
+        .back-to-announcement:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="announcement.html" class="back-to-announcement">
+            <i class="fas fa-arrow-right"></i> العودة إلى الإعلان
+        </a>
+        
+        <div class="form-header">
+            <h1 class="form-title">نموذج التسجيل</h1>
+            <p class="form-subtitle">نادي انطلاقة الصيفي 2024</p>
+            <p class="form-description">برامج عالمية متكاملة + أنشطة رياضية متنوعة + هاكاثونات تقنية وعلمية</p>
+        </div>
+        
+        <div class="form-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i> تم إرسال النموذج بنجاح! سيتم التواصل معك قريباً.
+            </div>
+            
+            <form id="registrationForm" action="mailto:info@entlaqah-club.com" method="post" enctype="text/plain">
+                <!-- القسم الأول: البيانات الشخصية -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-user section-icon"></i>
+                        البيانات الشخصية
+                    </h2>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="fullName">الاسم الكامل <span class="required">*</span></label>
+                                <input type="text" id="fullName" name="fullName" required>
+                                <div class="error-message">يرجى إدخال الاسم الكامل</div>
+                            </div>
+                            <div>
+                                <label for="birthDate">تاريخ الميلاد <span class="required">*</span></label>
+                                <input type="date" id="birthDate" name="birthDate" required>
+                                <div class="error-message">يرجى إدخال تاريخ الميلاد</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="age">العمر <span class="required">*</span></label>
+                                <input type="number" id="age" name="age" min="15" max="22" required>
+                                <div class="help-text">من 15 إلى 22 سنة</div>
+                                <div class="error-message">العمر يجب أن يكون بين 15 و 22 سنة</div>
+                            </div>
+                            <div>
+                                <label for="gender">الجنس <span class="required">*</span></label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">اختر الجنس</option>
+                                    <option value="male">ذكر</option>
+                                    <option value="female">أنثى</option>
+                                </select>
+                                <div class="error-message">يرجى اختيار الجنس</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="idNumber">رقم الهوية/الإقامة <span class="required">*</span></label>
+                                <input type="text" id="idNumber" name="idNumber" required>
+                                <div class="error-message">يرجى إدخال رقم الهوية أو الإقامة</div>
+                            </div>
+                            <div>
+                                <label for="nationality">الجنسية <span class="required">*</span></label>
+                                <input type="text" id="nationality" name="nationality" required>
+                                <div class="error-message">يرجى إدخال الجنسية</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- القسم الثاني: معلومات التواصل -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-phone section-icon"></i>
+                        معلومات التواصل
+                    </h2>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="phone">رقم الجوال <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <div class="error-message">يرجى إدخال رقم جوال صحيح</div>
+                            </div>
+                            <div>
+                                <label for="email">البريد الإلكتروني <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error-message">يرجى إدخال بريد إلكتروني صحيح</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">العنوان الكامل <span class="required">*</span></label>
+                        <textarea id="address" name="address" required></textarea>
+                        <div class="error-message">يرجى إدخال العنوان الكامل</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="city">المدينة <span class="required">*</span></label>
+                                <input type="text" id="city" name="city" required>
+                                <div class="error-message">يرجى إدخال المدينة</div>
+                            </div>
+                            <div>
+                                <label for="postalCode">الرمز البريدي</label>
+                                <input type="text" id="postalCode" name="postalCode">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- القسم الثالث: معلومات ولي الأمر -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-users section-icon"></i>
+                        معلومات ولي الأمر
+                    </h2>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="guardianName">اسم ولي الأمر <span class="required">*</span></label>
+                                <input type="text" id="guardianName" name="guardianName" required>
+                                <div class="error-message">يرجى إدخال اسم ولي الأمر</div>
+                            </div>
+                            <div>
+                                <label for="relationship">صلة القرابة <span class="required">*</span></label>
+                                <select id="relationship" name="relationship" required>
+                                    <option value="">اختر صلة القرابة</option>
+                                    <option value="father">والد</option>
+                                    <option value="mother">والدة</option>
+                                    <option value="other">ولي أمر آخر</option>
+                                </select>
+                                <div class="error-message">يرجى اختيار صلة القرابة</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="guardianPhone">رقم جوال ولي الأمر <span class="required">*</span></label>
+                                <input type="tel" id="guardianPhone" name="guardianPhone" required>
+                                <div class="error-message">يرجى إدخال رقم جوال ولي الأمر</div>
+                            </div>
+                            <div>
+                                <label for="guardianEmail">بريد ولي الأمر الإلكتروني</label>
+                                <input type="email" id="guardianEmail" name="guardianEmail">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- القسم الرابع: المعلومات التعليمية والمهنية -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap section-icon"></i>
+                        المعلومات التعليمية والمهنية
+                    </h2>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="educationLevel">المستوى التعليمي الحالي <span class="required">*</span></label>
+                                <select id="educationLevel" name="educationLevel" required>
+                                    <option value="">اختر المستوى التعليمي</option>
+                                    <option value="high_school">طالب ثانوي</option>
+                                    <option value="university">طالب جامعي</option>
+                                    <option value="graduate">خريج جامعي</option>
+                                    <option value="other">أخرى</option>
+                                </select>
+                                <div class="error-message">يرجى اختيار المستوى التعليمي</div>
+                            </div>
+                            <div>
+                                <label for="institution">اسم المؤسسة التعليمية/العمل <span class="required">*</span></label>
+                                <input type="text" id="institution" name="institution" required>
+                                <div class="error-message">يرجى إدخال اسم المؤسسة</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialization">التخصص/المجال</label>
+                        <input type="text" id="specialization" name="specialization">
+                    </div>
+                </div>
+                
+                <!-- القسم الخامس: اختيار البرامج والأنشطة -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-star section-icon"></i>
+                        اختيار البرامج والأنشطة
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label>البرامج التعليمية المرغوبة <span class="required">*</span></label>
+                        <div class="help-text">يمكنك اختيار أكثر من برنامج</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="stem" name="programs" value="stem">
+                                <label for="stem">برنامج STEM المتكامل</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="innovation" name="programs" value="innovation">
+                                <label for="innovation">برنامج الابتكار وريادة الأعمال</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="leadership" name="programs" value="leadership">
+                                <label for="leadership">برنامج القيادة الشبابية</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="sustainability" name="programs" value="sustainability">
+                                <label for="sustainability">برنامج الاستدامة البيئية</label>
+                            </div>
+                        </div>
+                        <div class="error-message">يرجى اختيار برنامج واحد على الأقل</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>الأنشطة الرياضية المرغوبة</label>
+                        <div class="help-text">يمكنك اختيار أكثر من نشاط</div>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="gym" name="sports" value="gym">
+                                <label for="gym">الصالات الرياضية المغلقة</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="horse" name="sports" value="horse">
+                                <label for="horse">الفروسية</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="swimming" name="sports" value="swimming">
+                                <label for="swimming">السباحة</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="martial" name="sports" value="martial">
+                                <label for="martial">الدفاع عن النفس</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>المشاركة في الهاكاثونات</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="techHackathon" name="hackathons" value="tech">
+                                <label for="techHackathon">الهاكاثون التقني</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="scienceHackathon" name="hackathons" value="science">
+                                <label for="scienceHackathon">الهاكاثون العلمي</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="noHackathon" name="hackathons" value="none">
+                                <label for="noHackathon">لا أرغب في المشاركة</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- القسم السادس: الخبرات والمهارات -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-lightbulb section-icon"></i>
+                        الخبرات والمهارات
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="experience">الخبرات السابقة في البرامج المشابهة</label>
+                        <textarea id="experience" name="experience" placeholder="اذكر أي خبرات سابقة في برامج تدريبية أو أنشطة مشابهة..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills">المهارات الخاصة أو المواهب</label>
+                        <textarea id="skills" name="skills" placeholder="اذكر أي مهارات خاصة أو مواهب تمتلكها..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>اللغات التي تجيدها</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="arabic" name="languages" value="arabic" checked>
+                                <label for="arabic">العربية</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="english" name="languages" value="english">
+                                <label for="english">الإنجليزية</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="french" name="languages" value="french">
+                                <label for="french">الفرنسية</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="otherLang" name="languages" value="other">
+                                <label for="otherLang">أخرى</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- القسم السابع: المعلومات الصحية -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-heartbeat section-icon"></i>
+                        المعلومات الصحية
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label>هل تعاني من أي حالة صحية خاصة؟ <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="healthNo" name="healthCondition" value="no" required>
+                                <label for="healthNo">لا</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="healthYes" name="healthCondition" value="yes" required>
+                                <label for="healthYes">نعم (يرجى التوضيح)</label>
+                            </div>
+                        </div>
+                        <div class="conditional-field" id="healthDetails">
+                            <label for="healthDescription">تفاصيل الحالة الصحية</label>
+                            <textarea id="healthDescription" name="healthDescription" placeholder="يرجى توضيح الحالة الصحية..."></textarea>
+                        </div>
+                        <div class="error-message">يرجى الإجابة على هذا السؤال</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>هل تتناول أي أدوية بانتظام؟ <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="medicationNo" name="medication" value="no" required>
+                                <label for="medicationNo">لا</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="medicationYes" name="medication" value="yes" required>
+                                <label for="medicationYes">نعم (يرجى التوضيح)</label>
+                            </div>
+                        </div>
+                        <div class="conditional-field" id="medicationDetails">
+                            <label for="medicationDescription">تفاصيل الأدوية</label>
+                            <textarea id="medicationDescription" name="medicationDescription" placeholder="يرجى ذكر الأدوية التي تتناولها..."></textarea>
+                        </div>
+                        <div class="error-message">يرجى الإجابة على هذا السؤال</div>
+                    </div>
+                </div>
+                
+                <!-- القسم الثامن: الدوافع والتوقعات -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-bullseye section-icon"></i>
+                        الدوافع والتوقعات
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="motivation">لماذا ترغب في الانضمام لنادي انطلاقة الصيفي؟ <span class="required">*</span></label>
+                        <textarea id="motivation" name="motivation" required placeholder="اشرح دوافعك للانضمام للنادي..."></textarea>
+                        <div class="error-message">يرجى توضيح دوافعك للانضمام</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="expectations">ما هي توقعاتك من البرنامج؟ <span class="required">*</span></label>
+                        <textarea id="expectations" name="expectations" required placeholder="اذكر ما تتوقعه من البرنامج..."></textarea>
+                        <div class="error-message">يرجى توضيح توقعاتك من البرنامج</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hearAbout">كيف سمعت عن النادي؟ <span class="required">*</span></label>
+                        <select id="hearAbout" name="hearAbout" required>
+                            <option value="">اختر الإجابة</option>
+                            <option value="social_media">وسائل التواصل الاجتماعي</option>
+                            <option value="friends">الأصدقاء والمعارف</option>
+                            <option value="school">المؤسسة التعليمية</option>
+                            <option value="ads">الإعلانات</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                        <div class="error-message">يرجى اختيار كيف سمعت عن النادي</div>
+                    </div>
+                </div>
+                
+                <!-- القسم التاسع: الموافقات والإقرارات -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-check-circle section-icon"></i>
+                        الموافقات والإقرارات
+                    </h2>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="terms" name="agreements" value="terms" required>
+                                <label for="terms">أوافق على شروط وأحكام النادي <span class="required">*</span></label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="privacy" name="agreements" value="privacy" required>
+                                <label for="privacy">أوافق على سياسة الخصوصية <span class="required">*</span></label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="photography" name="agreements" value="photography">
+                                <label for="photography">أوافق على تصوير الأنشطة لأغراض التوثيق والتسويق</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="newsletter" name="agreements" value="newsletter">
+                                <label for="newsletter">أوافق على تلقي رسائل إعلامية عن أنشطة النادي</label>
+                            </div>
+                        </div>
+                        <div class="error-message">يرجى الموافقة على الشروط والأحكام وسياسة الخصوصية</div>
+                    </div>
+                </div>
+                
+                <!-- القسم العاشر: معلومات إضافية -->
+                <div class="form-section">
+                    <h2 class="section-title">
+                        <i class="fas fa-plus-circle section-icon"></i>
+                        معلومات إضافية
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="notes">ملاحظات أو طلبات خاصة</label>
+                        <textarea id="notes" name="notes" placeholder="أي ملاحظات أو طلبات خاصة..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div>
+                                <label for="transportation">هل تحتاج إلى مواصلات؟</label>
+                                <select id="transportation" name="transportation">
+                                    <option value="">اختر الإجابة</option>
+                                    <option value="yes">نعم</option>
+                                    <option value="no">لا</option>
+                                    <option value="unsure">غير متأكد</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="emergencyContact">رقم الطوارئ (غير رقم ولي الأمر)</label>
+                                <input type="tel" id="emergencyContact" name="emergencyContact">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="submit-section">
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane"></i>
+                        إرسال النموذج
+                    </button>
+                    <p style="margin-top: 15px; color: #666; font-size: 14px;">
+                        سيتم التواصل معك خلال 3-5 أيام عمل لتأكيد القبول
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // تحديث شريط التقدم
+        function updateProgress() {
+            const form = document.getElementById('registrationForm');
+            const inputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+            const filled = Array.from(inputs).filter(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    return document.querySelector(`input[name="${input.name}"]:checked`);
+                }
+                return input.value.trim() !== '';
+            });
+            
+            const progress = (filled.length / inputs.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        // إضافة مستمعي الأحداث لتحديث التقدم
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registrationForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            
+            inputs.forEach(input => {
+                input.addEventListener('input', updateProgress);
+                input.addEventListener('change', updateProgress);
+            });
+            
+            // إظهار/إخفاء الحقول الشرطية
+            document.querySelectorAll('input[name="healthCondition"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const healthDetails = document.getElementById('healthDetails');
+                    if (this.value === 'yes') {
+                        healthDetails.classList.add('show');
+                    } else {
+                        healthDetails.classList.remove('show');
+                    }
+                });
+            });
+            
+            document.querySelectorAll('input[name="medication"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const medicationDetails = document.getElementById('medicationDetails');
+                    if (this.value === 'yes') {
+                        medicationDetails.classList.add('show');
+                    } else {
+                        medicationDetails.classList.remove('show');
+                    }
+                });
+            });
+            
+            // تأثيرات بصرية للخيارات
+            document.querySelectorAll('.checkbox-item, .radio-item').forEach(item => {
+                const input = item.querySelector('input');
+                input.addEventListener('change', function() {
+                    if (this.checked) {
+                        item.classList.add('checked');
+                    } else {
+                        item.classList.remove('checked');
+                    }
+                });
+            });
+            
+            // التحقق من صحة النموذج
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                const errorMessages = document.querySelectorAll('.error-message');
+                errorMessages.forEach(msg => msg.style.display = 'none');
+                
+                // التحقق من الحقول المطلوبة
+                const requiredInputs = form.querySelectorAll('input[required], select[required], textarea[required]');
+                requiredInputs.forEach(input => {
+                    if (!input.value.trim()) {
+                        const errorMsg = input.parentNode.querySelector('.error-message');
+                        if (errorMsg) {
+                            errorMsg.style.display = 'block';
+                            isValid = false;
+                        }
+                    }
+                });
+                
+                // التحقق من اختيار البرامج
+                const programs = document.querySelectorAll('input[name="programs"]:checked');
+                if (programs.length === 0) {
+                    const programsError = document.querySelector('input[name="programs"]').closest('.form-group').querySelector('.error-message');
+                    if (programsError) {
+                        programsError.style.display = 'block';
+                        isValid = false;
+                    }
+                }
+                
+                // التحقق من الموافقات المطلوبة
+                const requiredAgreements = ['terms', 'privacy'];
+                requiredAgreements.forEach(agreement => {
+                    const checkbox = document.getElementById(agreement);
+                    if (!checkbox.checked) {
+                        const agreementsError = document.querySelector('input[name="agreements"]').closest('.form-group').querySelector('.error-message');
+                        if (agreementsError) {
+                            agreementsError.style.display = 'block';
+                            isValid = false;
+                        }
+                    }
+                });
+                
+                if (isValid) {
+                    // إظهار رسالة النجاح
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    // تجميع البيانات وإرسالها
+                    const formData = new FormData(form);
+                    let emailBody = 'تسجيل جديد في نادي انطلاقة الصيفي:\n\n';
+                    
+                    for (let [key, value] of formData.entries()) {
+                        emailBody += `${key}: ${value}\n`;
+                    }
+                    
+                    // إرسال البيانات عبر البريد الإلكتروني
+                    const mailtoLink = `mailto:info@entlaqah-club.com?subject=تسجيل جديد - نادي انطلاقة الصيفي&body=${encodeURIComponent(emailBody)}`;
+                    window.location.href = mailtoLink;
+                    
+                    // التمرير إلى أعلى الصفحة
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+            
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
+

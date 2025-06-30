@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إعلان نادي انطلاقة الصيفي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Almarai', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            direction: rtl;
+        }
+        
+        .poster-container {
+            width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/teamwork.jpeg');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.2;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .main-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #ffffff, #f0f0f0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 15px 0 0;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+        
+        .intro {
+            background-color: #ffffff;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .intro p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            color: #444;
+        }
+        
+        .section {
+            padding: 20px 25px;
+            background-color: #ffffff;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1E3A8A;
+            margin: 0 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 80px;
+            height: 2px;
+            background-color: #1E3A8A;
+        }
+        
+        .program-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-header {
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .program-icon {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        
+        .program-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .stem-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+        }
+        
+        .innovation-header {
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+        }
+        
+        .leadership-header {
+            background: linear-gradient(135deg, #D97706 0%, #FBBF24 100%);
+        }
+        
+        .sustainability-header {
+            background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+        }
+        
+        .sports-header {
+            background: linear-gradient(135deg, #7E22CE 0%, #A855F7 100%);
+        }
+        
+        .hackathon-header {
+            background: linear-gradient(135deg, #BE123C 0%, #F43F5E 100%);
+        }
+        
+        .program-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .program-content {
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .program-content ul {
+            margin: 0;
+            padding-right: 20px;
+            list-style-type: none;
+        }
+        
+        .program-content li {
+            position: relative;
+            padding: 5px 0;
+            padding-right: 20px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .program-content li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #1E3A8A;
+            font-weight: bold;
+        }
+        
+        .sport-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .sport-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sport-header {
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #7E22CE 0%, #A855F7 100%);
+        }
+        
+        .sport-icon {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        
+        .sport-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .sport-content {
+            padding: 15px;
+            background-color: white;
+            display: flex;
+        }
+        
+        .sport-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-left: 15px;
+        }
+        
+        .sport-content ul {
+            margin: 0;
+            padding-right: 20px;
+            list-style-type: none;
+            flex: 1;
+        }
+        
+        .sport-content li {
+            position: relative;
+            padding: 5px 0;
+            padding-right: 20px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .sport-content li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #7E22CE;
+            font-weight: bold;
+        }
+        
+        .hackathon-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .hackathon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hackathon-header {
+            padding: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #BE123C 0%, #F43F5E 100%);
+        }
+        
+        .hackathon-icon {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        
+        .hackathon-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .hackathon-content {
+            padding: 15px;
+            background-color: white;
+            display: flex;
+        }
+        
+        .hackathon-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-left: 15px;
+        }
+        
+        .hackathon-content ul {
+            margin: 0;
+            padding-right: 20px;
+            list-style-type: none;
+            flex: 1;
+        }
+        
+        .hackathon-content li {
+            position: relative;
+            padding: 5px 0;
+            padding-right: 20px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .hackathon-content li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #BE123C;
+            font-weight: bold;
+        }
+        
+        .registration {
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #1E3A8A;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            font-size: 16px;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-label {
+            font-weight: 700;
+            margin: 0;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .info-value {
+            margin: 5px 0 0;
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .features {
+            padding: 25px;
+            background-color: #ffffff;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+        }
+        
+        .feature-icon {
+            color: #1E3A8A;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+        
+        .contact {
+            padding: 25px;
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-family: 'Cairo', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 20px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .contact-label {
+            font-weight: 700;
+            margin: 0 0 5px;
+            font-size: 16px;
+        }
+        
+        .contact-value {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .footer {
+            padding: 20px;
+            background-color: #0F172A;
+            color: white;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .footer .slogan {
+            font-family: 'Cairo', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 100%);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(249, 115, 22, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.5);
+        }
+        
+        .deadline {
+            background-color: #FEF3C7;
+            border: 2px dashed #D97706;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .deadline p {
+            margin: 0;
+            font-weight: 700;
+            color: #92400E;
+            font-size: 16px;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .poster-container {
+                width: 100%;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-content">
+                <h1 class="main-title">نادي انطلاقة الصيفي</h1>
+                <p class="subtitle">برامج عالمية متكاملة + أنشطة رياضية متنوعة + هاكاثونات تقنية وعلمية</p>
+                <a href="#registration" class="cta-button">سجل الآن</a>
+            </div>
+        </div>
+        
+        <!-- Introduction Section -->
+        <div class="intro">
+            <p>نادي انطلاقة الصيفي هو برنامج تعليمي وترفيهي متكامل يهدف إلى تطوير مهارات الشباب وإعدادهم لمواجهة تحديات المستقبل من خلال برامج عالمية متخصصة وأنشطة رياضية وتقنية متنوعة.</p>
+        </div>
+        
+        <!-- Programs Section -->
+        <div class="section">
+            <h2 class="section-title">البرامج التعليمية الأساسية</h2>
+            
+            <!-- STEM Program -->
+            <div class="program-card">
+                <div class="program-header stem-header">
+                    <div class="program-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3 class="program-title">برنامج STEM المتكامل</h3>
+                </div>
+                <img src="images/stem_program.jpg" alt="برنامج STEM" class="program-image">
+                <div class="program-content">
+                    <ul>
+                        <li>تطوير المهارات العلمية والتقنية</li>
+                        <li>مشاريع عملية في العلوم والتكنولوجيا</li>
+                        <li>ورش عمل متخصصة مع خبراء في المجال</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Innovation Program -->
+            <div class="program-card">
+                <div class="program-header innovation-header">
+                    <div class="program-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="program-title">برنامج الابتكار وريادة الأعمال</h3>
+                </div>
+                <img src="images/innovation_program.webp" alt="برنامج الابتكار" class="program-image">
+                <div class="program-content">
+                    <ul>
+                        <li>تنمية العقلية الريادية والتفكير الإبداعي</li>
+                        <li>تطوير خطط الأعمال وتحويل الأفكار إلى مشاريع</li>
+                        <li>لقاءات مع رواد أعمال ناجحين</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Leadership Program -->
+            <div class="program-card">
+                <div class="program-header leadership-header">
+                    <div class="program-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="program-title">برنامج القيادة الشبابية</h3>
+                </div>
+                <img src="images/leadership_program.jpg" alt="برنامج القيادة" class="program-image">
+                <div class="program-content">
+                    <ul>
+                        <li>تطوير المهارات القيادية والشخصية</li>
+                        <li>تعلم فنون التواصل والعمل الجماعي</li>
+                        <li>قيادة مبادرات مجتمعية حقيقية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Sustainability Program -->
+            <div class="program-card">
+                <div class="program-header sustainability-header">
+                    <div class="program-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="program-title">برنامج الاستدامة البيئية</h3>
+                </div>
+                <img src="images/sustainability_program.jpg" alt="برنامج الاستدامة" class="program-image">
+                <div class="program-content">
+                    <ul>
+                        <li>تعزيز الوعي البيئي والمسؤولية المجتمعية</li>
+                        <li>تطوير حلول مبتكرة للتحديات البيئية</li>
+                        <li>مشاريع عملية للحفاظ على البيئة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sports Activities Section -->
+        <div class="section">
+            <h2 class="section-title">الأنشطة الرياضية المتخصصة</h2>
+            
+            <!-- Indoor Sports -->
+            <div class="sport-card">
+                <div class="sport-header">
+                    <div class="sport-icon">
+                        <i class="fas fa-basketball-ball"></i>
+                    </div>
+                    <h3 class="sport-title">الصالات الرياضية المغلقة</h3>
+                </div>
+                <div class="sport-content">
+                    <img src="images/indoor_sports.jpg" alt="الصالات الرياضية" class="sport-image">
+                    <ul>
+                        <li>تدريبات لياقة بدنية شاملة</li>
+                        <li>ألعاب جماعية متنوعة</li>
+                        <li>مدربون معتمدون ومتخصصون</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Horse Riding -->
+            <div class="sport-card">
+                <div class="sport-header">
+                    <div class="sport-icon">
+                        <i class="fas fa-horse"></i>
+                    </div>
+                    <h3 class="sport-title">الفروسية</h3>
+                </div>
+                <div class="sport-content">
+                    <img src="images/horse_riding.jpg" alt="الفروسية" class="sport-image">
+                    <ul>
+                        <li>تعلم أساسيات ركوب الخيل</li>
+                        <li>تطوير مهارات التوازن والثقة بالنفس</li>
+                        <li>مدربون خبراء في الفروسية</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Swimming -->
+            <div class="sport-card">
+                <div class="sport-header">
+                    <div class="sport-icon">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <h3 class="sport-title">السباحة</h3>
+                </div>
+                <div class="sport-content">
+                    <img src="images/swimming.jpeg" alt="السباحة" class="sport-image">
+                    <ul>
+                        <li>تعلم تقنيات السباحة المختلفة</li>
+                        <li>تدريبات إنقاذ وسلامة مائية</li>
+                        <li>مدربون معتمدون في السباحة</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Martial Arts -->
+            <div class="sport-card">
+                <div class="sport-header">
+                    <div class="sport-icon">
+                        <i class="fas fa-fist-raised"></i>
+                    </div>
+                    <h3 class="sport-title">الدفاع عن النفس</h3>
+                </div>
+                <div class="sport-content">
+                    <img src="images/martial_arts.jpg" alt="الدفاع عن النفس" class="sport-image">
+                    <ul>
+                        <li>تعلم فنون القتال المختلفة</li>
+                        <li>تطوير الثقة بالنفس والانضباط الذاتي</li>
+                        <li>مدربون خبراء ومعتمدون دولياً</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hackathons Section -->
+        <div class="section">
+            <h2 class="section-title">الهاكاثونات المتخصصة</h2>
+            
+            <!-- Technical Hackathon -->
+            <div class="hackathon-card">
+                <div class="hackathon-header">
+                    <div class="hackathon-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="hackathon-title">الهاكاثون التقني</h3>
+                </div>
+                <div class="hackathon-content">
+                    <img src="images/hackathon.jpg" alt="الهاكاثون التقني" class="hackathon-image">
+                    <ul>
+                        <li>تطوير تطبيقات ومواقع ويب</li>
+                        <li>حل المشكلات التقنية بطرق إبداعية</li>
+                        <li>جوائز قيمة للفرق الفائزة</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Scientific Hackathon -->
+            <div class="hackathon-card">
+                <div class="hackathon-header">
+                    <div class="hackathon-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3 class="hackathon-title">الهاكاثون العلمي</h3>
+                </div>
+                <div class="hackathon-content">
+                    <img src="images/hackathon.jpg" alt="الهاكاثون العلمي" class="hackathon-image">
+                    <ul>
+                        <li>حل التحديات العلمية والبحثية</li>
+                        <li>تطوير نماذج أولية للاختراعات</li>
+                        <li>عرض النتائج أمام لجنة من الخبراء</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Registration Information Section -->
+        <div class="registration" id="registration">
+            <h2 class="section-title">معلومات التسجيل</h2>
+            
+            <div class="info-grid">
+                <!-- Age Group -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4 class="info-label">الفئة العمرية</h4>
+                        <p class="info-value">من 15 إلى 22 سنة</p>
+                    </div>
+                </div>
+                
+                <!-- Program Duration -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4 class="info-label">مدة البرنامج</h4>
+                        <p class="info-value">16 يوماً (4 أسابيع)</p>
+                    </div>
+                </div>
+                
+                <!-- Daily Schedule -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4 class="info-label">التوقيت اليومي</h4>
+                        <p class="info-value">من 4:00 مساءً إلى 10:00 مساءً</p>
+                    </div>
+                </div>
+                
+                <!-- Available Seats -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4 class="info-label">المقاعد المتاحة</h4>
+                        <p class="info-value">200 مقعد (6 مجموعات)</p>
+                    </div>
+                </div>
+                
+                <!-- Registration Fee -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4 class="info-label">رسوم التسجيل</h4>
+                        <p class="info-value">مجاني بالكامل</p>
+                    </div>
+                </div>
+                
+                <!-- Start Date -->
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="info-content">
+                        <h4 class="info-label">تاريخ بدء البرنامج</h4>
+                        <p class="info-value">15 يوليو 2024</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="deadline">
+                <p>آخر موعد للتسجيل: 30 يونيو 2024</p>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="features">
+            <h2 class="section-title">المميزات المقدمة</h2>
+            
+            <div class="features-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>برامج تدريبية عالمية المستوى</span>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>مدربون متخصصون وخبراء في جميع المجالات</span>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>شهادات معتمدة في جميع البرامج والأنشطة</span>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>مرافق رياضية حديثة ومجهزة بالكامل</span>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>معدات وأدوات متطورة لجميع الأنشطة</span>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <span>جوائز وحوافز للمتميزين في جميع المجالات</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="contact">
+            <h2 class="contact-title">للاستفسارات والتواصل</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4 class="contact-label">الهاتف</h4>
+                    <p class="contact-value">920-123-4567</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4 class="contact-label">البريد الإلكتروني</h4>
+                    <p class="contact-value">info@entlaqah-club.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="contact-label">العنوان</h4>
+                    <p class="contact-value">مركز الشباب الرئيسي - شارع الملك فهد</p>
+                </div>
+            </div>
+            
+            <div class="social-media">
+                <div class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <div class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Section -->
+        <div class="footer">
+            <p class="slogan">"انطلق... أبدع... اقود المستقبل"</p>
+            <p>المستقبل ينتظر من يصنعه... كن جزءاً من جيل الانطلاقة!</p>
+        </div>
+    </div>
+</body>
+</html>
+
